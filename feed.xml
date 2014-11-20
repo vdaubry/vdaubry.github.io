@@ -1,44 +1,30 @@
-<?xml version="1.0"?>
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
-    <link>http://vdaubry.github.io/</link>
-    <atom:link href="http://vdaubry.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <description></description>
-    <language>en-us</language>
-    <pubDate>Sat, 21 Jun 2014 10:18:24 +0000</pubDate>
-    <lastBuildDate>Sat, 21 Jun 2014 10:18:24 +0000</lastBuildDate>
-
-    
-    
-    <item>
-      <title>My hello worl with special char é ! ü</title>
-      <link>http://vdaubry.github.io//2014/06/15/hello-world/</link>
-      <pubDate>Sun, 15 Jun 2014 00:00:00 +0000</pubDate>
-      <author></author>
-      <guid>http://vdaubry.github.io//2014/06/15/hello-world</guid>
-      <description>&lt;h2 id=&quot;subtitle&quot;&gt;subtitle&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;test&lt;/li&gt;
-
-&lt;li&gt;test1&lt;/li&gt;
-
-&lt;li&gt;test2&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;gras&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;italic&lt;/em&gt;&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;ruby&#39;&gt;&lt;span class=&#39;k&#39;&gt;def&lt;/span&gt; &lt;span class=&#39;nf&#39;&gt;hello&lt;/span&gt;
-  &lt;span class=&#39;nb&#39;&gt;p&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;world&amp;quot;&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&quot;title&quot;&gt;Title&lt;/h4&gt;
-&lt;div&gt;&lt;a href=&#39;/images/post_ressources/youboox-capture.jpg&#39; target=&#39;_blank&#39;&gt;&lt;img src=&#39;/images/post_ressources/youboox-capture.jpg&#39; /&gt;&lt;/a&gt;&lt;/div&gt;</description>
-    </item>
-    
-    
-
-  </channel> 
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{{ site.description | xml_escape }}</description>
+    <link>{{ site.url }}{{ site.baseurl }}/</link>
+    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml" />
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for post in site.posts limit:10 %}
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <description>{{ post.content | xml_escape }}</description>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+        {% for tag in post.tags %}
+        <category>{{ tag | xml_escape }}</category>
+        {% endfor %}
+        {% for cat in post.categories %}
+        <category>{{ cat | xml_escape }}</category>
+        {% endfor %}
+      </item>
+    {% endfor %}
+  </channel>
 </rss>

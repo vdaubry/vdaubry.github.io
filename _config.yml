@@ -1,0 +1,17 @@
+# Site settings
+title: Patatetech
+email: vdaubry@gmail.com
+author: Vincent Daubry
+description: "A blog about mobile development, backend development and entrepreneurship"
+baseurl: ""
+url: "http://vdaubry.github.io"
+twitter_username: vdaubry
+github_username:  vdaubry
+linkedin_username: vincent daubry
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+permalink: pretty
+paginate: 5
+exclude: ["node_modules"]

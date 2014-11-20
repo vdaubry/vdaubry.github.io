@@ -1,149 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Un blog &mdash; Techno</title>
-    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+---
+layout: page
+description: "A blog about mobile development, backend development and entrepreneurship"
+header-img: "img/home-bg.jpg"
+---
 
-    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="Un blog" />
-    <meta name="title" content="Un blog">
-    <link rel="canonical" href="http://vdaubry.github.io//">
-
-
-    <meta property="og:title" content="Un blog"/>
-    <meta property="og:url" content="http://vdaubry.github.io//"/>
-
-
-    <meta property="og:site_name" content="Un blog">
-</head>
-<body>
-
-<section class="site-nav">
-    <header>
-        <nav id="navigation">
-
-            <a href="/">Blog</a>
-
-            <a href="/about">About</a>
-
-        </nav>
-        <nav class="tagline">
-            <span></span>
-
-        </nav>
-    </header>
-</section>
-
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
-
-    <section>
-        <div class="container">
-            <h1>Un blog</h1>
-            <h3>Techno</h3>
-
-
-            <a href="https://twitter.com/vdaubry" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
-
-
-            <a href="/feed.xml" title="RSS Feed">
-                <i class="icon icon-rss"></i>
-            </a>
-        </div>
-    </section>
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+    </a>
+    <p class="post-meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
 </div>
+<hr>
+{% endfor %}
 
-
-<article class="container">
-
-
-    <section class="index">
-        <img src="/images/me.png" class="avatar">
-        <div>
-            <h2 class="title"><a href="/2014/06/15/hello-world/" rel="prefetch">My hello worl with special char é ! ü</a></h2>
-            <p></p>
-            <div class="meta">
-                Written By <address>Vincent daubry</address> &mdash;
-                <time pubdate datetime="2014-15-June" title="June 15, 2014">June 15, 2014</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-
-    <section class="index">
-        <img src="/images/me.png" class="avatar">
-        <div>
-            <h2 class="title"><a href="/2014/11/16/second_post/" rel="prefetch">bla</a></h2>
-            <p></p>
-            <div class="meta">
-                Written By <address>Vincent daubry</address> &mdash;
-                <time pubdate datetime="2014-15-June" title="June 15, 2014">June 15, 2014</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-
-
-    <section class="pagination" style="text-align:center">
-
-
-    </section>
-</article>
-
-
-<footer class="site-footer">
-    <div class="container">
-        &copy; 2014
-
-        <nav>
-            <a href="http://vdaubry.github.io/">Vincent Daubry</a> &middot;
-
-            <a href="/about">About</a>
-        </nav>
-
-        <nav class="social">
-
-            <a href="https://twitter.com/vdaubry" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
-
-
-            <a href="/feed.xml" title="RSS Feed">
-                <i class="icon icon-rss black"></i>
-            </a>
-        </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
-    </div>
-</footer>
-
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-<script>
-    (function(d, t) {
-        var g = d.createElement(t),
-            s = d.getElementsByTagName(t)[0];
-        g.src = '//hnbutton.appspot.com/static/hn.min.js';
-        s.parentNode.insertBefore(g, s);
-    }(document, 'script'));
-</script>
-
-
-
-</body>
-</html>
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}

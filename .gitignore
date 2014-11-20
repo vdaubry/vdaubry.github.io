@@ -1,3 +1,2 @@
-projects/*
-images/projects/*
-_site/*
+_site
+node_modules

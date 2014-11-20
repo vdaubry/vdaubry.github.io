@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 
 <!-- Post Header -->
@@ -32,19 +33,68 @@ layout: default
                 <ul class="pager">
                     {% if page.previous.url %}
                     <li class="previous">
-                        <a href="{{ site.baseurl }}/{{page.previous.url}}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a> 
+                        <a href="{{ site.baseurl }}/{{page.previous.url}}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
                     </li>
-                    {% endif %} 
+                    {% endif %}
                     {% if page.next.url %}
                     <li class="next">
                         <a href="{{ site.baseurl }}/{{page.next.url}}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
                     </li>
-                    {% endif %} 
+                    {% endif %}
                 </ul>
 
             </div>
         </div>
     </div>
 </article>
+
+
+<div class="container">
+    <div class="row ">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+
+        <!-- Twitter -->
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="vdaubry">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+        <!-- Google + -->
+        <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <!-- Facebook -->
+        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" style="position: relative; top: -8px; left: 33px;"></div>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&appId=609039549219229&version=v2.0";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    </div>
+    </div>
+    <div class="col-xs-2"></div>
+</div>
+<br>
+
+
+<!--  Disqus comments -->
+{% if page.comments %}
+  <div id="disqus_thread" class="container"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'vdaubry'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}
 
 <hr>

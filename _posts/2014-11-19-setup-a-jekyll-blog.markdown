@@ -1,7 +1,8 @@
 ---
 layout:     post
-title:      "Setup up a jekyll blog"
-subtitle:   "An easy way to get a good looking blog using jekyll and github pages"
+title:      "Setup up a jekyll blog using github pages, sharing links and meta tags"
+subtitle:   "An easy way to get a good looking blog"
+description: "Learn how to setup a full jekyll blog, hosted on github pages, including a custom theme, Disqus comments,social sharing links, SEO best practices"
 date:       2014-10-19
 author:     "Vincent Daubry"
 header-img: "img/post-bg-02.jpg"
@@ -149,8 +150,6 @@ N'oubliez pas de vérifier la bonne intégration des metadatas open graph sur le
 Si vous souhaitez une liste des attributs de l'open graph vous pouvez lire la doc <a href="http://ogp.me/">ici</a>
 
 
-
-
 Metadatas Twitter cards :
 
 Le concept est similaire pour Twitter, pour afficher un appercu d'un lien dans un tweet vous pouvez fournir au crawler de Twitter des informations sur votre page :
@@ -166,10 +165,11 @@ Voilà un exemple de code que vous pouvez ajouter dans votre include ```head.htm
 
 {% gist d404f792a87699c665e2 %}
 
+Comme pour Facebook pensez à valider l'intégration des metadatas Twitter cards via le <a href="https://cards-dev.twitter.com/validator">Card validator</a>
 
+Pour que twitter affichent les images fournit il faut que votre domaine soit validé par Twitter. Pour celà rendez vous sur le <a href="https://cards-dev.twitter.com/validator">Card validator</a> et cliquez sur "request approval".
 
-
-
+Pour ce blog la validation a été faite quelques minutes après avoir fait la demande.
 
 
 ###Ajouter google analytics
@@ -180,6 +180,59 @@ Voilà un exemple de code que vous pouvez ajouter dans votre include ```head.htm
 
 ###SEO
 
+Je ne suis pas expert SEO et ce n'est pas le sujet de cet article, cela étant dit il y a t'il des choses simple que l'on peut faire pour améliorer le référencement de ce blog ?
+
+Voilà la liste des modifications que j'ai apporté au template clean blog :
+
+1) Ne pas inclure systématiquement le nom du blog dans la balise title
+
+source : <a href="http://sixrevisions.com/content-strategy/5-common-seo-mistakes-with-web-page-titles/)">5 Common SEO Mistakes with Web Page Titles</a>
+
+Avant :
+
+{% highlight html %}
+{% raw %}
+<title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+{% endraw %}
+{% endhighlight %}
+
+Après :
+{% highlight html %}
+{% raw %}
+<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+{% endraw %}
+{% endhighlight %}
+
+
+2) Utiliser une meta description spécifique pour chaque page du blog
+
+source : <a href="http://moz.com/learn/seo/meta-description">Meta Description Tag - Learn SEO</a>
+
+Avant :
+
+{% highlight html %}
+{% raw %}
+<meta name="description" content="{{ site.description }}">
+{% endraw %}
+{% endhighlight %}
+
+Après :
+{% highlight html %}
+{% raw %}
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+{% endraw %}
+{% endhighlight %}
+
+
+3) Utiliser la meta rel=author pour chaque page du blog
+
+source: <a href="http://www.vervesearch.com/blog/how-to-implement-the-relauthor-tag-a-step-by-step-guide/">How to Implement the Rel=”Author” Tag – A Step by Step Guide</a>
+
+{% highlight html %}
+<link rel="author" href="https://plus.google.com/+vincentdaubry"/>
+{% endhighlight %}
+
+Voyez vous d'autres améliorations que l'on peut apporter au référencement d'un blog Jekyll ?
 
 
 Le code de ce blog est accessible ici : <a href="vdaubry.github.io">vdaubry.github.io</a>

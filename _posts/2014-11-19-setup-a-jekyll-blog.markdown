@@ -5,7 +5,7 @@ subtitle:   "An easy way to get a good looking blog"
 description: "Learn how to setup a full jekyll blog, hosted on github pages, including a custom theme, Disqus comments,social sharing links, SEO best practices"
 date:       2014-10-19
 author:     "Vincent Daubry"
-header-img: "img/post-bg-02.jpg"
+header-img: "img/post-bg-07.jpg"
 ---
 
 ###Setup a personal blog with Jekyll
@@ -35,9 +35,16 @@ The list of solutions is <a href="https://staticsitegenerators.net">impressive</
 
 ###Choose a blog theme for Jekyll :
 
-The default template is not great in terms of design. If you go to <a href="http://jekyllthemes.org/">jekyllthemes.org</a>, you can find nicer templates. For this blog I used <a href="https://github.com/IronSummitMedia/startbootstrap-clean-blog-jekyll">clean-blog</a>
+The default template is not great in terms of design. If you go to <a href="http://jekyllthemes.org/">jekyllthemes.org</a>, you can find nicer templates. For this blog I used <a href="https://github.com/IronSummitMedia/startbootstrap-clean-blog-jekyll">clean-blog</a>. To start your blog just fork the repo.
 
-To start your blog just fork the repo. To preview your modification locally, you must install Jekyll, the doc <a href="http://jekyllrb.com/docs/installation/">here</a> but basically it's as complex as :
+It's a good idea to customize the images, a very easy way to do that is choose a HD photo in creative common license. You can use <a href="http://www.sitebuilderreport.com/stock-up">stock-up</a> for that.
+
+You are going to display white text over the image, in order to increase readability it's better to darken the image. You can do that with the mac preview app by changing the "exposure" :
+
+<img src="/img//posts/2014-11-19-setup-a-jekyll-blog/exposure.jpg" width="800">
+
+
+To preview your modification locally, you must install Jekyll, the doc <a href="http://jekyllrb.com/docs/installation/">here</a> but basically it's as complex as :
 
 ```gem install jekyll```
 
@@ -120,7 +127,7 @@ Metadatas Google :
 
 
 
-Metadatas Facebook OpenGraph :
+####Metadatas Facebook OpenGraph :
 
 
 Partager un lien sur Facebook consiste à référencer sur sa timeline un objet de <a href="http://en.wikipedia.org/wiki/Facebook_Platform#Open_Graph_protocol">l'open graph de facebook</a>
@@ -150,7 +157,7 @@ N'oubliez pas de vérifier la bonne intégration des metadatas open graph sur le
 Si vous souhaitez une liste des attributs de l'open graph vous pouvez lire la doc <a href="http://ogp.me/">ici</a>
 
 
-Metadatas Twitter cards :
+####Metadatas Twitter cards :
 
 Le concept est similaire pour Twitter, pour afficher un appercu d'un lien dans un tweet vous pouvez fournir au crawler de Twitter des informations sur votre page :
 

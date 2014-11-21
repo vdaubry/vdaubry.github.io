@@ -144,7 +144,10 @@ Pour celà vous pouvez ajouter un code de type dans votre include ```head.html``
 
 {% gist 69f089affeff3b6ca627 %}
 
+N'oubliez pas de vérifier la bonne intégration des metadatas open graph sur le <a href="https://developers.facebook.com/tools/debug/og/object/">debugger facebook</a>
+
 Si vous souhaitez une liste des attributs de l'open graph vous pouvez lire la doc <a href="http://ogp.me/">ici</a>
+
 
 
 
@@ -159,7 +162,9 @@ Le concept est similaire pour Twitter, pour afficher un appercu d'un lien dans u
 * image
 
 
+Voilà un exemple de code que vous pouvez ajouter dans votre include ```head.html``` pour générer les metadatas Twitter cards :
 
+{% gist d404f792a87699c665e2 %}
 
 
 

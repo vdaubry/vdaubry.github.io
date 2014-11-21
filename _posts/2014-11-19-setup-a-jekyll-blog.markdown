@@ -179,12 +179,6 @@ Pour que twitter affichent les images fournit il faut que votre domaine soit val
 Pour ce blog la validation a été faite quelques minutes après avoir fait la demande.
 
 
-###Ajouter google analytics
-
-
-
-
-
 ###SEO
 
 Je ne suis pas expert SEO et ce n'est pas le sujet de cet article, cela étant dit il y a t'il des choses simple que l'on peut faire pour améliorer le référencement de ce blog ?

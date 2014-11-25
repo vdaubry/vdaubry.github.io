@@ -37,3 +37,42 @@ Bien pour POC, hackathon, mais cloud code pas industriel
 Je l'utiliserais en prod sur des toutes petites appli : très peu de table, uniquement du CRUD, pas ou peu de logique coté serveur (validation de form, pas plus)
 Je ne l'utiliserais pas en prod autre chose, si j'avais besoin de limiter la charge d'ops je partirais plutôt sur Heroku
 
+
+
+Google maps API :
+Google console :
+
+Dans le menu "APIs" :
+Ajouter Google Maps Embed API
+
+Dans "credentials" ajouter une browser key
+
+La clef sera visible de tout le monde. Si la sécurité n'est pas un sujet pour vous et que vous êtes ok pour que votre clef soit utilisé par d'autres personnes que vous (you fool) :
+
+No security : laisser referers vide et valider (Any referer allowed))
+
+Ajouter referers :
+localhost:9000/*
+where2workapp.com/*
+*.where2workapp.com
+
+https://developers.google.com/console/help/new/#whitelistingbyip
+
+Pour aws ajouter : *.amazonaws.com/where2workapp.com/*
+
+Si vos referer sont mal configuré vous aurez une erreur
+
+"The Google Maps API server rejected your request. This IP, site or mobile application is not authorized to use this API key."
+
+
+Si vous deployer sur un bucket S3, ajoutez : *.amazonaws.com
+
+Attention votre clef sera alors utilisable par qu'elle appli servi depuis sur S3.
+
+Attention il faut quelques minutes pour que les modifications soient prises en compte. Par exemple lorsque vous ajouter une nouvelle clef ou que vous re-générer une clef, vous verrez un message
+
+"The Google Maps API server rejected your request. The provided API key is expired."
+
+
+
+

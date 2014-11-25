@@ -7,9 +7,7 @@ p {
   line-height: 1.5;
   margin: 30px 0;
 }
-p a {
-  color: #007fe6;
-}
+
 h1,
 h2,
 h3,
@@ -20,7 +18,7 @@ h6 {
   font-weight: 800;
 }
 a {
-  color: #404040;
+  color: #007fe6;
 }
 a:hover,
 a:focus {

@@ -29,7 +29,7 @@ Facebook inject le style pour son bouton via du javascript. Cela peut provoquer 
 
 <img src="/img/posts/2014-11-19-setup-a-jekyll-blog/facebook-bug.png" height="90">
 
-Dans mon cas j'ai résolu le problème avec un gros bout de sparadra :
+Dans mon cas j'ai résolu le problème avec un gros bout de sparadrap :
 
 {% highlight html %}
 <div class="fb-share-button" data-href="{{site.url}}{{page.url}}" data-layout="button_count" style="position: relative; top: -8px; left: 33px;"></div>
@@ -106,62 +106,6 @@ Pour que twitter affichent les images fournit il faut que votre domaine soit val
 
 Pour ce blog la validation a été faite quelques minutes après avoir fait la demande.
 
-
-###SEO
-
-Je ne suis pas expert SEO et ce n'est pas le sujet de cet article, cela étant dit il y a t'il des choses simple que l'on peut faire pour améliorer le référencement de ce blog ?
-
-Voilà la liste des modifications que j'ai apporté au template clean blog :
-
-1) Ne pas inclure systématiquement le nom du blog dans la balise title
-
-source : <a href="http://sixrevisions.com/content-strategy/5-common-seo-mistakes-with-web-page-titles/)">5 Common SEO Mistakes with Web Page Titles</a>
-
-Avant :
-
-{% highlight html %}
-{% raw %}
-<title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-{% endraw %}
-{% endhighlight %}
-
-Après :
-{% highlight html %}
-{% raw %}
-<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-{% endraw %}
-{% endhighlight %}
-
-
-2) Utiliser une meta description spécifique pour chaque page du blog
-
-source : <a href="http://moz.com/learn/seo/meta-description">Meta Description Tag - Learn SEO</a>
-
-Avant :
-
-{% highlight html %}
-{% raw %}
-<meta name="description" content="{{ site.description }}">
-{% endraw %}
-{% endhighlight %}
-
-Après :
-{% highlight html %}
-{% raw %}
-<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-{% endraw %}
-{% endhighlight %}
-
-
-3) Utiliser la meta rel=author pour chaque page du blog
-
-source: <a href="http://www.vervesearch.com/blog/how-to-implement-the-relauthor-tag-a-step-by-step-guide/">How to Implement the Rel=”Author” Tag – A Step by Step Guide</a>
-
-{% highlight html %}
-<link rel="author" href="https://plus.google.com/+vincentdaubry"/>
-{% endhighlight %}
-
-Voyez vous d'autres améliorations que l'on peut apporter au référencement d'un blog Jekyll ?
-
+Voyez vous des améliorations à apportés, avez vous procédé différement ? si c'est le cas laissez un commentaire.
 
 Le code de ce blog est accessible ici : <a href="vdaubry.github.io">vdaubry.github.io</a>

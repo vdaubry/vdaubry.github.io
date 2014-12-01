@@ -16,15 +16,13 @@ header-img: "img/post-bg-07.jpg"
 
 ###Part 3: SEO
 
-Je ne suis pas expert SEO et ce n'est pas le sujet de cet article, cela étant dit il y a t'il des choses simple que l'on peut faire pour améliorer le référencement de ce blog ?
+what are the simple things you can do to improve the SEO of your blog ? Here is the list of changes I made to clean blog template :
 
-Voilà la liste des modifications que j'ai apporté au template clean blog :
-
-1) Ne pas inclure systématiquement le nom du blog dans la balise title
+1) Do not systematically include the blog name in the title tag
 
 source : <a href="http://sixrevisions.com/content-strategy/5-common-seo-mistakes-with-web-page-titles/)">5 Common SEO Mistakes with Web Page Titles</a>
 
-Avant :
+Before :
 
 {% highlight html %}
 {% raw %}
@@ -32,7 +30,8 @@ Avant :
 {% endraw %}
 {% endhighlight %}
 
-Après :
+After :
+
 {% highlight html %}
 {% raw %}
 <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
@@ -40,11 +39,11 @@ Après :
 {% endhighlight %}
 
 
-2) Utiliser une meta description spécifique pour chaque page du blog
+2) Use a specific meta description for each page of the blog
 
 source : <a href="http://moz.com/learn/seo/meta-description">Meta Description Tag - Learn SEO</a>
 
-Avant :
+Before :
 
 {% highlight html %}
 {% raw %}
@@ -52,7 +51,8 @@ Avant :
 {% endraw %}
 {% endhighlight %}
 
-Après :
+After :
+
 {% highlight html %}
 {% raw %}
 <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
@@ -60,7 +60,7 @@ Après :
 {% endhighlight %}
 
 
-3) Utiliser la meta rel=author pour chaque page du blog
+3) Use the meta rel = author for each blog page
 
 source: <a href="http://www.vervesearch.com/blog/how-to-implement-the-relauthor-tag-a-step-by-step-guide/">How to Implement the Rel=”Author” Tag – A Step by Step Guide</a>
 
@@ -68,7 +68,7 @@ source: <a href="http://www.vervesearch.com/blog/how-to-implement-the-relauthor-
 <link rel="author" href="https://plus.google.com/+vincentdaubry"/>
 {% endhighlight %}
 
-Voyez vous d'autres améliorations que l'on peut apporter au référencement d'un blog Jekyll ?
+That's it !
+Do you see other improvements we can make to a Jekyll blog SEO ?
 
-
-Le code de ce blog est accessible ici : <a href="vdaubry.github.io">vdaubry.github.io</a>
+Code for this blog can be found here : <a href="vdaubry.github.io">vdaubry.github.io</a>

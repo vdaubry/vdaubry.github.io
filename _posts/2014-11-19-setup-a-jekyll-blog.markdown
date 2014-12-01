@@ -90,4 +90,4 @@ That's it.
 
 See any way to improve this setup ? share your thoughts in comments
 
-Le code de ce blog est accessible ici : <a href="vdaubry.github.io">vdaubry.github.io</a>
+Code for this blog can be found here : <a href="vdaubry.github.io">vdaubry.github.io</a>

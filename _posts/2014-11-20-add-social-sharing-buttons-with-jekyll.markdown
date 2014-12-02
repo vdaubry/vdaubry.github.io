@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Add social sharing buttons into Jekyll"
+title:      "Add social sharing buttons with Jekyll"
 subtitle:   "Share your blog post on Facebook, Twitter and Google+"
 description: "Learn how to add sharing links on Facebook, Twitter and Google+"
 date:       2014-10-20
@@ -11,28 +11,29 @@ header-img: "img/post-bg-07.jpg"
 <i>This post is part of a series of articles on how to setup a Jekyll blog :</i>
 
 * <a href="{{site.url}}/2014/10/19/setup-a-jekyll-blog/">Part 1: Setup up a jekyll blog using github pages and disqus comments</a>
-* <a href="{{site.url}}/2014/10/20/add-sharing-links-to-jekyll-blog/">Part 2: Add social sharing buttons into Jekyll</a>
+* <a href="{{site.url}}/2014/10/20/add-social-sharing-buttons-with-jekyll/">Part 2: Add social sharing buttons with Jekyll</a>
 * <a href="{{site.url}}/2014/10/21/2014/10/21/SEO-for-your-Jekyll-blog/">Part 3: SEO for your Jekyll blog</a>
 
 ###Part 2: Add links to share on twitter, facebook and google +
 
 Adding sharing buttons to your posts is extremely simple for twitter and google +, just paste the provided code on your page :
 
-* Twitter: <a href="https://about.twitter.com/resources/buttons#tweet">this page</a>
-* Google +: <a href="https://developers.google.com/+/web/share/">this page</a>
+* Twitter: visit <a href="https://about.twitter.com/resources/buttons#tweet">this page</a>
+* Google+: visit <a href="https://developers.google.com/+/web/share/">this page</a>
 
 Facebook is a bigger hassle:
-First you need to create an application on this page <a href="https://developers.facebook.com/">facebook developer</a>
-Then get code on the <a href="https://developers.facebook.com/docs/plugins/share-button/">sharing button page</a>
+</br>
+First you need to create an application on this page <a href="https://developers.facebook.com/">facebook developer</a>.
+</br>
+Then get the sample code on the <a href="https://developers.facebook.com/docs/plugins/share-button/">sharing button page</a>
 
 And of course it doesnt work out of the box :
+</br>
 Contrary to Twitter and and Google+, the injected code doesn't auto-discover your current page url. It's a static link, and the sample code include a link to the developper page itself (no, you do not have 1 million shares on your blog article already).
 
 You need to use a <a href="http://jekyllrb.com/docs/variables/">Jekyll variable</a> to get the URL of the current page:
 
-```
-<div class="fb-share-button" data-href="{{site.url}}{{page.url}}" data-layout="button_count" style="position: relative; top: -8px; left: 33px;"></div>
-```
+{% gist df233106010970ddb237 %}
 
 Facebook also injects style via javascript, this can cause a vertical alignment offset with other buttons:
 
@@ -43,12 +44,12 @@ Facebook also injects style via javascript, this can cause a vertical alignment 
 
 Search engines and social networks crawl your page and index its metadatas. Google uses it to calculate your <a href="http://en.wikipedia.org/wiki/PageRank">pagerank</a>, Facebook (meta og) and Twitter (twitter cards) use them to enrich the way your page is displayed in shares and tweets.
 
-Web page metadata is a vast subject, I recommend you to read this excellent article on the state of the art of meta in 2013: <a href="http://www.iacquire.com/blog/18-meta-tags-every-webpage-should-have-in-2013">18 Meta Tags Every Webpage Should Have in 2013</a>
+Web page metadatas is a vast subject, I recommend you to read this excellent article on the state of the art of meta in 2013: <a href="http://www.iacquire.com/blog/18-meta-tags-every-webpage-should-have-in-2013">18 Meta Tags Every Webpage Should Have in 2013</a>
 
 
 ####Metadatas Facebook OpenGraph :
 
-Shares on Facebook are reference to an object of the <a href="http://en.wikipedia.org/wiki/Facebook_Platform#Open_Graph_protocol">open graph.</a>
+Shares on Facebook are objects of the <a href="http://en.wikipedia.org/wiki/Facebook_Platform#Open_Graph_protocol">open graph.</a>
 By default, the crawler will gather informations about your page such as the title, a preview of your page, etc.
 
 You can improve the way your page is displayed by providing metadatas about your page :

@@ -11,7 +11,7 @@ header-img: "img/post-bg-07.jpg"
 <i>This post is part of a series of articles on how to setup a Jekyll blog :</i>
 
 * <a href="{{site.url}}/2014/10/19/setup-a-jekyll-blog/">Part 1: Setup up a jekyll blog using github pages and disqus comments</a>
-* <a href="{{site.url}}/2014/10/20/add-sharing-links-to-jekyll-blog/">Part 2: Add sharing links to a jekyll blog</a>
+* <a href="{{site.url}}/2014/10/20/add-social-sharing-buttons-with-jekyll/">Part 2: Add social sharing buttons with Jekyll</a>
 * <a href="{{site.url}}/2014/10/21/2014/10/21/SEO-for-your-Jekyll-blog/">Part 3: SEO for your Jekyll blog</a>
 
 ###Part 3: SEO

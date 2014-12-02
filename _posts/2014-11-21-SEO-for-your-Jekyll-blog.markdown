@@ -16,7 +16,7 @@ header-img: "img/post-bg-07.jpg"
 
 ###Part 3: SEO
 
-what are the simple things you can do to improve the SEO of your blog ? Here is the list of changes I made to clean blog template :
+There are some simple things you can do to improve the SEO of your blog, here is the list of changes I made to the clean blog template :
 
 1) Do not systematically include the blog name in the title tag
 

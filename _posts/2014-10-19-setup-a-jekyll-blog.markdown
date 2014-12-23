@@ -42,7 +42,7 @@ The list of alternatives is [impressive](https://staticsitegenerators.net), so w
 
 The default template is not great in terms of design. You can find nicer templates on [jekyllthemes.org](http://jekyllthemes.org/), for this blog I used [clean-blog](https://github.com/IronSummitMedia/startbootstrap-clean-blog-jekyll). To start your blog just fork the repo.
 
-I advise you to change the default image for the front page and at the top of each post. You'll find HD pictures under creative common license on [stock-up](http://www.sitebuilderreport.com/stock-up).
+I advise you to change the default image on the front page and at the top of each post. You'll find HD pictures under creative common license on [stock-up](http://www.sitebuilderreport.com/stock-up).
 
 You're going to display white text over the images, in order to increase readability it's better to darken the image. You can do that with the mac preview app by changing the "exposure" :
 

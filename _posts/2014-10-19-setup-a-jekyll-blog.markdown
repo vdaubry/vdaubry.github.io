@@ -26,12 +26,12 @@ This is the first article of my blog, so it seems a perfect subject to explain h
 
 There are several reasons to choose a static site generator instead of a CMS like wordpress. In this article we will focus on the simplicity provided by Jekyll :
 
-* Quick start (if you know the markdown syntax you should be fine)
+* Quick start (if you're familiar with markdown you should be fine)
 * Very little configuration
-* Ease of deployment : there is no app server, just Apache will do.
+* Ease of deployment : No app server, a simple Apache will do.
 * Ability to host directly on Github thanks to [github pages](https://pages.github.com/)
 
-The list of solutions is [impressive](https://staticsitegenerators.net), so why Jekyll?
+The list of alternatives is [impressive](https://staticsitegenerators.net), so why Jekyll?
 
 * Right now Jekyll is one of the most popular static website generator ([source](https://www.staticgen.com/))
 * Used by Github (written by Tom Preston-Werner, founder of Github)

@@ -58,7 +58,7 @@ To start the jekyll server and add post, just follow the [getting started](http:
 
 ###Deploy your Jekyll blog
 
-To deploy your blog you have 2 solutions :
+To deploy your blog you can either :
 
 1) Manually generate the static version of your blog:
 

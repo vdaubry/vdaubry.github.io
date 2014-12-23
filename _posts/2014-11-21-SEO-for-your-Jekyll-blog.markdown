@@ -10,9 +10,9 @@ header-img: "img/post-bg-07.jpg"
 
 <i>This post is part of a series of articles on how to setup a Jekyll blog :</i>
 
-* <a href="{{site.url}}/2014/10/19/setup-a-jekyll-blog/">Part 1: Setup up a jekyll blog using github pages and disqus comments</a>
-* <a href="{{site.url}}/2014/10/20/add-social-sharing-buttons-with-jekyll/">Part 2: Add social sharing buttons with Jekyll</a>
-* <a href="{{site.url}}/2014/10/21/2014/10/21/SEO-for-your-Jekyll-blog/">Part 3: SEO for your Jekyll blog</a>
+* [Part 1: Setup up a jekyll blog using github pages and disqus comments]("{{site.url}}/2014/10/19/setup-a-jekyll-blog/")
+* [Part 2: Add social sharing buttons with Jekyll]("{{site.url}}/2014/10/20/add-social-sharing-buttons-with-jekyll/")
+* [Part 3: SEO for your Jekyll blog]("{{site.url}}/2014/10/21/2014/10/21/SEO-for-your-Jekyll-blog/")
 
 ###Part 3: SEO
 
@@ -22,7 +22,7 @@ There are some simple things you can do to improve the SEO of your blog, here is
 
 source : <a href="http://sixrevisions.com/content-strategy/5-common-seo-mistakes-with-web-page-titles/)">5 Common SEO Mistakes with Web Page Titles</a>
 
-Before :
+The clean blog template include the blog name in every post title, which is bad :
 
 {% highlight html %}
 {% raw %}
@@ -30,20 +30,13 @@ Before :
 {% endraw %}
 {% endhighlight %}
 
-After :
-
-{% highlight html %}
-{% raw %}
-<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-{% endraw %}
-{% endhighlight %}
 
 
 2) Use a specific meta description for each page of the blog
 
 source : <a href="http://moz.com/learn/seo/meta-description">Meta Description Tag - Learn SEO</a>
 
-Before :
+The clean blog template include the blog description on post page, you should use a specific description for each post :
 
 {% highlight html %}
 {% raw %}
@@ -51,18 +44,12 @@ Before :
 {% endraw %}
 {% endhighlight %}
 
-After :
-
-{% highlight html %}
-{% raw %}
-<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-{% endraw %}
-{% endhighlight %}
-
 
 3) Use the meta rel = author for each blog page
 
 source: <a href="http://www.vervesearch.com/blog/how-to-implement-the-relauthor-tag-a-step-by-step-guide/">How to Implement the Rel=”Author” Tag – A Step by Step Guide</a>
+
+Link the page to your google+ profil :
 
 {% highlight html %}
 <link rel="author" href="https://plus.google.com/+vincentdaubry"/>

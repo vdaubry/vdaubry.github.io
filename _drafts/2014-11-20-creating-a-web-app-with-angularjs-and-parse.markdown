@@ -73,6 +73,31 @@ Attention il faut quelques minutes pour que les modifications soient prises en c
 
 "The Google Maps API server rejected your request. The provided API key is expired."
 
+- - - - -
+How to quickly test an idea with a webapp an no server :  angularjs + parse.com + static website en AWS S3
+
+Expliquer concept Where2work
+
+Step 1 :
+Appli angular + geoloc Google
+
+Step 2
+Parse.com backend
+Rex :
+Simple
+Marche bien
+Bon pour un poc, ou un hackathon mais pas plus : cloud code inutilisable, pas moyen de lancer en local, le debug se fait avec des log que l'on deploie. Sans parler qu'il n'y a pas de test. Des petites validations ou des choses simples mais on ne développe rien de sérieux comme ça.
+
+
+Step 3:
+Deploiement S3 avec grunt-aws
+Utilisation de S3 static website
+Prendre un nom de domaine sur OVH
+Utiliser Route 53 comme DNS
+
+
+step 4 :
+Ionic => faire un client iOS + Android
 
 
 

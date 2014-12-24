@@ -88,6 +88,58 @@ To add a comments feature with Disqus, it's just as simple:
 * Choose integration via "universal code"
 * Include the provided code in the layout of the post (_layout / post.hmtl)
 
+
+###Send emails through the contact form
+
+The clean blog template comes with a nice contact form, the only problem is that it relies on a PHP script. Github pages wont execute any PHP so it's useless in that case.
+
+There are many handy services that provides email forms for static websites, i chose [formspree](http://formspree.io/) which is both simple and free.
+
+I didn't need anything fancy for the contact form validation, (only mandatory fields and email format) so I removed jqBootstrapValidation and just used plain HTML5 validation.
+
+The contact form uses Javascript to submit the form, i wanted to keep that so i just modified it to submit to  formspree :
+
+{% highlight javascript %}
+$(function() {
+    $("#contactForm").submit(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: "//formspree.io/my@email.com", 
+        method: "POST",
+        data: $(this).serialize(),
+        dataType: "json",
+        success: function(data){
+          // Success message
+          $('#success').html("<div class='alert alert-success'>");
+          $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+              .append("</button>");
+          $('#success > .alert-success')
+              .append("<strong>Your message has been sent. </strong>");
+          $('#success > .alert-success')
+              .append('</div>');
+
+          //clear all fields
+          $('#contactForm').trigger("reset");
+        },
+        error: function(){
+          // Fail message
+          $('#success').html("<div class='alert alert-danger'>");
+          $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+              .append("</button>");
+          $('#success > .alert-danger').append("<strong>Sorry it seems that my mail server is not responding. Please try again later!");
+          $('#success > .alert-danger').append('</div>');
+          //clear all fields
+          $('#contactForm').trigger("reset");
+        }
+      });
+    });
+});
+{% endhighlight %}
+
+
+Now i can get send email without any backend !
+
+
 That's it.
 
 See any way to improve this setup ? share your thoughts in comments

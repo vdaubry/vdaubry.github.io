@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "SEO for your Jekyll blog"
-subtitle:   "Take care of search engine optimization for your blog"
+subtitle:   "Improve search engine optimization for your blog"
 description: "Learn how to optimize your Jekyll blog posts for search engines"
 date:       2014-10-21
 author:     "Vincent Daubry"
@@ -18,7 +18,7 @@ header-img: "img/post-bg-07.jpg"
 
 There are some simple things you can do to improve the SEO of your blog, here is the list of changes I made to the clean blog template :
 
-1) Do not systematically include the blog name in the title tag
+#### 1) Do not systematically include the blog name in the title tag
 
 source : [5 Common SEO Mistakes with Web Page Titles](http://sixrevisions.com/content-strategy/5-common-seo-mistakes-with-web-page-titles/)
 
@@ -32,7 +32,7 @@ The clean blog template include the blog name in every post title, which is bad 
 
 
 
-2) Use a specific meta description for each page of the blog
+#### 2) Use a specific meta description for each page of the blog
 
 source : [Meta Description Tag - Learn SEO](http://moz.com/learn/seo/meta-description)
 
@@ -45,7 +45,7 @@ The clean blog template include the blog description on post page, you should us
 {% endhighlight %}
 
 
-3) Use the meta rel = author for each blog page
+#### 3) Use the meta rel = author for each blog page
 
 source: [How to Implement the Rel=”Author” Tag – A Step by Step Guide](http://www.vervesearch.com/blog/how-to-implement-the-relauthor-tag-a-step-by-step-guide/)
 
@@ -56,16 +56,17 @@ Link the page to your google+ profil :
 {% endhighlight %}
 
 
-4) Generate a sitemap for your blog
+#### 4) Generate a sitemap for your blog
 
 A [sitemap](https://support.google.com/webmasters/answer/156184?hl=en) provides search engine crawler informations about your website structure and pages it should index.
 
 You can easily generate one by adding the ```jekyll-sitemap``` gem to your ```_config.xml```, just follow these [instructions](https://help.github.com/articles/sitemaps-for-github-pages/)
 
-5) Add a robots.txt file
+#### 5) Add a robots.txt file
 
 A robots.txt file provides informations to crawlers about pages you want to exclude from indexing. You should also specify the path to your sitemap.
 
+Add a similar file to the root of your project :
 
 {% highlight html %}
 {% raw %}

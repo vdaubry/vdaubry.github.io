@@ -138,7 +138,7 @@ $(function() {
 {% endhighlight %}
 
 
-Now i can get send email without any backend !
+Now you can send email without any backend !
 
 
 That's it.

@@ -18,7 +18,7 @@ header-img: "img/post-bg-07.jpg"
 
 TL;DR :
 
-You want to start a personal blog, keep it simple and have a nice visual result? In this article we will see how to set up a blog with [jekyll](http://jekyllrb.com/), add a good looking nice theme, and host it on [github pages](https://pages.github.com/)
+You want to start a personal blog, keep it simple and have a nice visual result? In this article we will see how to set up a blog with [jekyll](http://jekyllrb.com/), add a good looking theme, and host it on [github pages](https://pages.github.com/)
 
 This is the first article of my blog, so it seems a perfect subject to explain how I set it up (and by the way, you are already seeing the final result, so if you don't like it, you can skip this ;)
 

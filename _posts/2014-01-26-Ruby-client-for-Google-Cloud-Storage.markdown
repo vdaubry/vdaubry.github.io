@@ -10,7 +10,7 @@ header-img: "img/post-bg-03.jpg"
 
 ###Ruby client for Google Cloud Storage 
 
-After using AWS  for some years, the Google Cloud platform feels like stone age :
+After using AWS  for some years, the Google Cloud Storage client for Ruby feels like stone age :
 
 * Oudated code sample
 * Overall complexity

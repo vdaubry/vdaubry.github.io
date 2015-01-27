@@ -14,7 +14,7 @@ header-img: "img/post-bg-06.jpg"
 At [Youboox](http://www.youboox.fr) we process a lot of books, when we receive a new book we start a backround job that will :
 
 * Compress the book (ex : extracting image, compressing them, etc)
-* Slice the book into several smaller files, so we can send only pages corresponding to the current position  of the user in the book
+* Slice the book into several smaller files, so we can send only pages corresponding to the current position of the user in the book
 * Crypt the file to apply our custom DRM
 
 These jobs take between a few minutes to almost an hour for the larger books (some of the files we receive are over 100 Mo)
@@ -26,16 +26,14 @@ Over the time we discovered the challenges of processing long and complex backgr
 ### Why we started with Heroku :
 
 Late 2011 when we started to write the first lines of code for Youboox, we had very limited ressources and a lot of things to do. The beta service included :
-- 1 Rails app for publisher to upload their books
-- 1 iPad app
-- 1 json API in rails
 
-At that time we had 2 priorities :
-Signing deal with publishers
-Growing our user base.
+* 1 Rails app for publisher to upload their books
+* 1 iPad app
+* 1 json API in rails
 
-Our technical choices aimed at delivering value as fast as possible value to users and publishers. We were focused on development rather than managing infrastructure.
-Heroku was a perfect fit in this situation, it was great to get up and running fast without ever having to ssh to a server.
+At that time we had 2 priorities : signing deal with publishers and growing our user base.
+
+Our technical choices aimed at delivering value as fast as possible to users and publishers. We were focused on development rather than managing infrastructure, so Heroku was a perfect fit in this situation, it was great to get up and running fast without ever having to ssh to a server.
 If i had to do it again i would definitely go for Heroku.
 
 
@@ -43,26 +41,27 @@ If i had to do it again i would definitely go for Heroku.
 
 At the betinning of 2012 after a few months of development we released our beta, this is how our  background job infrastructure looked like :
 
+<img src="/img//posts/2014-12-23-Why-we-moved-from-Heroku-to-EC2/architecture-2012.jpg" width="800">
 
 It was fairly simple :
 A publisher would upload a book on our web app
 It started a background job, that includes the following steps :
-- Compressing
-- Slicing
-- crypting
+
+* Compressing
+* Slicing
+* crypting
+
 When the job was done the files were stored on AWS S3
 
 
 ### Monitoring problems :
 
-This simple approach roughly worked. But we soon discovered it had several drawbacks :
-
-The book industry is very different from the music or film industry. The standard for digital books is the epub format, problem is every publisher is doing it their own way.
+This simple approach roughly worked. But we soon discovered it had several drawbacks :<br>
+The book industry is very different from the music or film industry, the standard for digital books is the epub format, problem is every publisher is doing it their own way.<br>
 Everytime we would sign a new publisher we received a different epub format...
 
-As you can imagine this creates a lot of unexpected behavior during the processing. Heroku makes it really hard to investigate this kind of error : 
-The platform was not designed to easily SSH on a worker and inspect what process is using too much ressources.
-Heroku also kills a lot of worker, which is ok when you have a lot of short jobs, but becomes a problem when you are running few long running jobs :
+As you can imagine this creates a lot of unexpected behavior during the processing. Heroku makes it really hard to investigate this kind of error : <br>
+The platform was not designed to easily SSH on a worker and inspect what process is using too much ressources. Heroku also kills a lot of worker, which is ok when you have a lot of short jobs, but becomes a problem when you are running few long running jobs :
 
 * worker are restarted every 24h
 * When heroku detects a problem on a worker (high load, etc) it tends to kill it
@@ -73,10 +72,11 @@ We couldn't easily scale the number of worker according to the number of books i
 Note: At that time we tried [Hirefire](http://hirefire.io) which was at its early stage and not production ready.
 Service such as [Adeptscale](https://www.adeptscale.com) didn't exist at that time.
 
-We were also constrained by the binaries that were installed by default on Heroku instances, most of the time older version. It was very frustrating to face bugs in Imagemagick that had already been fixed and to be unable to update it..
+We were also constrained by the binaries that were installed by default on Heroku instances, most of the time older version. It was very frustrating to face bugs in Imagemagick that had already been fixed and being unable to update it..
 
-But despite these problems it was working. What really made us switch to EC2 was the migration from Bamboo et Cedar.
-We were heavily relying on PDFTK to process PDF files, and this lib was purely removed from Cedar. We started to look how to create a customnbuildpack for Cedar, but it just felt like we were really using a platform that didn't suit our needs any more.
+But despite these problems it was working.<br>
+What really made us switch to EC2 was the migration from Bamboo et Cedar.
+We were heavily relying on PDFTK to process PDF files, and this lib was simply removed from Cedar. We started to look how to create a custom buildpack for Cedar, but it just felt like we were really using a platform that didn't suit our needs any more.
 
 At this point we decided to extract all code related to background processing into a seperate ruby app and host it on EC2.
 It would allow us to install libs missing on the Cedar stack and at the same time solve the other issues we already had :
@@ -85,8 +85,8 @@ It would allow us to install libs missing on the Cedar stack and at the same tim
 * auto scaling
 * debugging
 
-Note: We were already using [New relic](http://newrelic.com) which is an amazing tool for high level infrastructure monitoring. We had a general overview of the global health of our platform both with performance monitoring and alarming
-But New relic is not designed to monitor process so it didn't help to debug our background jobs : we needed to know what specific process was taking to much ram, when the temp local filesystem was full, etc
+Note: We were already using [New relic](http://newrelic.com) which is an amazing tool for high level infrastructure monitoring. We had a general overview of the global health of our platform both with performance monitoring and alarming.
+But New relic is not designed to monitor process so it didn't help to debug our background jobs : we needed to know what specific process was taking to much ram, when the local disk was full, etc
 
 
 
@@ -112,11 +112,14 @@ For more info about Opswork see LINK TO DOC
 When this new book processing application was up and running, our new infrastructure looked like this :
 
 
+<img src="/img//posts/2014-12-23-Why-we-moved-from-Heroku-to-EC2/architecture-2014.jpg" width="800">
+
+
 Now when a publisher uploads a book, it sends an http request to our book processing app.
-This app then adds a background job to Resque.
-When the job processing starts, CPU load gets over the treshold and Opswork starts another instances.
-When the instance is setup and the app deployed it pulls another job in resque, CPU load of thiz new instance reaches treshold and so on.
-When there is no more jobs to process CPU load goes below the treshold and Opswork shuts down instances. 
+This app then adds a background job to Resque.<br>
+When the job processing starts, CPU load gets over the treshold and Opswork starts another instances.<br>
+When the instance is setup and the app deployed it pulls another job in resque, CPU load of thiz new instance reaches treshold and so on.<br>
+When there is no more jobs to process CPU load goes below the treshold and Opswork shuts down instances.<br>
 When the book is processed, the files are still stored on S3 and we send an http request is sent back to our API on heroku to inform that the book is ready to be streamed to clients.
 
 Now when something goes wrong we can SSH to instances, inspects processes and view logs for this specific instance.

@@ -2,7 +2,7 @@
 layout:     post
 title:      "Setup up a jekyll blog using github pages and disqus comments"
 subtitle:   "An easy way to get a good looking blog"
-description: "Learn how to setup a full jekyll blog, hosted on github pages, including a custom theme and Disqus comments"
+description: "Learn how to setup a full jekyll blog, hosted on github pages, including a custom theme and Disqus comments. We'll also see how to add a contact form and send email without any server !"
 date:       2014-10-19
 author:     "Vincent Daubry"
 header-img: "img/post-bg-07.jpg"
@@ -18,17 +18,17 @@ header-img: "img/post-bg-07.jpg"
 
 TL;DR :
 
-Are you a developer? You want to start a personal blog, keep it simple and have a nice visual result? In this article we will see how to set up a blog with [jekyll](http://jekyllrb.com/), using a nice theme, and host it on [github pages](https://pages.github.com/)
+You want to start a personal blog, keep it simple and have a nice visual result? In this article we will see how to set up a blog with [jekyll](http://jekyllrb.com/), add a good looking nice theme, and host it on [github pages](https://pages.github.com/)
 
-This is the first article of my blog, so it seems a perfect subject to explain how I set it up (and by the way, you are already seeing the final result, so if you don't like it, you can skip this article ;)
+This is the first article of my blog, so it seems a perfect subject to explain how I set it up (and by the way, you are already seeing the final result, so if you don't like it, you can skip this ;)
 
 ###Why a static site generator?
 
-There are several reasons to choose a static site generator instead of a CMS like wordpress. In this article we will focus on the simplicity provided by Jekyll :
+There are several reasons to choose a static site generator instead of a CMS like Wordpress. In this article we will focus on the simplicity provided by Jekyll :
 
 * Quick start (if you're familiar with markdown you should be fine)
 * Very little configuration
-* Ease of deployment : No app server, a simple Apache will do.
+* Ease of deployment : no app server
 * Ability to host directly on Github thanks to [github pages](https://pages.github.com/)
 
 The list of alternatives is [impressive](https://staticsitegenerators.net), so why Jekyll?
@@ -53,7 +53,7 @@ To preview your modification locally, you must install Jekyll : see [here](http:
 
 ```gem install jekyll```
 
-To start the jekyll server and add post, just follow the [getting started](http://jekyllrb.com/docs/usage/)
+To start the jekyll server and add some posts, just follow the [getting started](http://jekyllrb.com/docs/usage/)
 
 
 ###Deploy your Jekyll blog
@@ -67,7 +67,8 @@ To deploy your blog you can either :
 It builds static HTML pages under the "_site" directory. Just serve this folder with the HTML server of your choice :
 
 * On your remote server
-* Drop it on a S3 bucket (using S3 static website for example)
+* Drop it on a S3 bucket (using [S3 static website](http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) for example)
+* Copy to your Dropbox public folder (no really, don't do that..)
 etc
 
 
@@ -91,7 +92,7 @@ To add a comments feature with Disqus, it's just as simple:
 
 ###Send emails through the contact form
 
-The clean blog template comes with a nice contact form, the only problem is that it relies on a PHP script. Github pages wont execute any PHP so it's useless in that case.
+The clean blog template comes with a nice contact form, the only problem is that it relies on a PHP script for sending email. Github pages wont execute any PHP so it's useless in our case.
 
 There are many handy services that provides email forms for static websites, i chose [formspree](http://formspree.io/) which is both simple and free.
 

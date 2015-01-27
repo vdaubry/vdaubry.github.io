@@ -20,7 +20,7 @@ After using AWS  for some years, the Google Cloud platform feels like stone age 
 API are everywhere and every single conference repeats the same mantra : "treat developers as customers", "think about onboarding".<br>
 Either Google is deaf, or they left the startups market to AWS. I wish them good luck competing with Microsoft Azure for the entreprise business.
 
-So enough bitching, if you need to download a file from Google Storage, here is a fixed version of their code sample :
+So enough bitching, if you need to download a file from Google Storage in Ruby, here is a fixed version of their code sample :
 
 {% highlight ruby %}
 require 'google/api_client'

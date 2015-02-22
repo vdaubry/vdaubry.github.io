@@ -66,13 +66,13 @@ To deploy your blog you can either :
 
 It builds static HTML pages under the "_site" directory. Just serve this folder with the HTML server of your choice :
 
-* On your remote server
+* Apache on a remote server
 * Drop it on a S3 bucket (using [S3 static website](http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) for example)
-* Copy to your Dropbox public folder (no really, don't do that..)
+* Copy to your Dropbox public folder (no really, don't do that..)<br>
 etc
 
 
-2) Or you can also use the hosting service github pages. Just create a repo using the following convention for the name of the repo:
+2) Or you can use the hosting service github pages. Just create a repo using the following name convention :
 
 ```
 your_github_username.github.io
@@ -96,9 +96,9 @@ The clean blog template comes with a nice contact form, the only problem is that
 
 There are many handy services that provides email forms for static websites, i chose [formspree](http://formspree.io/) which is both simple and free.
 
-I didn't need anything fancy for the contact form validation, (only mandatory fields and email format) so I removed jqBootstrapValidation and just used plain HTML5 validation.
+I didn't need anything fancy for the contact form validation, (only mandatory fields and email format check) so I removed jqBootstrapValidation and just used plain HTML5 validation.
 
-The contact form uses Javascript to submit the form, i wanted to keep that so i just modified it to submit to  formspree :
+The contact form uses Javascript to submit the form, i wanted to keep that so i just modified it to submit to formspree :
 
 {% highlight javascript %}
 $(function() {
@@ -145,4 +145,4 @@ That's it.
 
 See any way to improve this setup ? share your thoughts in comments
 
-Code for this blog can be found here : [vdaubry.github.io](http://vdaubry.github.io)
+Code for this blog can be found here : [vdaubry.github.io](https://github.com/vdaubry/vdaubry.github.io)

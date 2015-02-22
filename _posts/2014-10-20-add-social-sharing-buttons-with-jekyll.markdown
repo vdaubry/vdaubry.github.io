@@ -102,4 +102,4 @@ Thats it ! People can now share a link to your post on social networks.
 
 Do you see room for improvement, have you done something differently? if so leave a comment.
 
-Code for this blog can be found here : [vdaubry.github.io]("vdaubry.github.io")
+Code for this blog can be found here : [vdaubry.github.io](https://github.com/vdaubry/vdaubry.github.io)

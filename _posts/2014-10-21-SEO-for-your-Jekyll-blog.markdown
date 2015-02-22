@@ -82,4 +82,4 @@ Sitemap: {{ site.url }}/sitemap.xml
 That's it !
 Do you see other improvements we can make to a Jekyll blog SEO ?
 
-Code for this blog can be found here : <a href="vdaubry.github.io">vdaubry.github.io</a>
+Code for this blog can be found here : [vdaubry.github.io](https://github.com/vdaubry/vdaubry.github.io)

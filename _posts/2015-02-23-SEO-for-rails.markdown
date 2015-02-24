@@ -24,7 +24,7 @@ And follow the instructions.
 
 #### Step 2 : generate a sitemap
 
-Generating a sitemap is as easy as generating a XML file, you can do it just with [Nokogiri](http://www.nokogiri.org/). It would look like this :
+Generating a sitemap is as easy as generating a XML file, if you have a fairly simple sitemap you can do it just with [Nokogiri](http://www.nokogiri.org/). It would look like this :
 
 {% highlight ruby %}
 
@@ -45,7 +45,7 @@ end.to_xml
 {% endhighlight %}
 
 
-Or you can use the [sitemap_generator](https://github.com/kjvarga/sitemap_generator) gem. Basically it won't add much feature to doing it by hand : you'll get gzip and upload to S3 is included for example
+If your sitemap is more complex (thousands of pages for example) you can use the [sitemap_generator](https://github.com/kjvarga/sitemap_generator) gem. You'll get some nice features out of the box : slice your sitemap by 50.000 links, and gzip them. You can also upload it to S3
 
 Follow the readme, but here is a sample so you can compare :
 
@@ -115,10 +115,10 @@ In your view :
 
 {% highlight html %}
 
-<% content_for :head do %>
+<%= content_for :head do %>
   <title> Github ranking | github-awards</title>
-  <meta name="description">Discover your ranking on Github ! Find out what is your rank by language, in your city and in your country/>
-  <link rel="canonical" href=<% welcome_path %> />
+  <meta name="description" content="Discover your ranking on Github ! Find out what is your rank by language, in your city and in your country"/>
+  <link rel="canonical" href=<%= welcome_url %> />
 <% end %>
 
 {% endhighlight %}

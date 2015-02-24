@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "SEO for Rails | vdaubry"
+title:      "SEO for Rails"
 subtitle:   ""
 description: "Improve the search engine ranking of your Rails app"
 date:       2015-02-23

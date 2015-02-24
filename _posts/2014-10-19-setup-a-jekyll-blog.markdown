@@ -46,7 +46,7 @@ I advise you to change the default image on the front page and at the top of eac
 
 You're going to display white text over the images, in order to increase readability it's better to darken the image. You can do that with the mac preview app by changing the "exposure" :
 
-<img src="/img//posts/2014-11-19-setup-a-jekyll-blog/exposure.jpg" width="800">
+<img src="/img/posts/2014-11-19-setup-a-jekyll-blog/exposure.jpg" width="800">
 
 
 To preview your modification locally, you must install Jekyll : see [here](http://jekyllrb.com/docs/installation/), but basically it's as complex as :

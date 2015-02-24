@@ -8,19 +8,9 @@ author:     "Vincent Daubry"
 header-img: "img/post-bg-06.jpg"
 ---
 
+### Introduction
 
-###Our context
-
-At [Youboox](http://www.youboox.fr) we process a lot of books, when we receive a new book we start a backround job that will :
-
-* Compress the book (ex : extracting image, compressing them, etc)
-* Slice the book into several smaller files, so we can send only pages corresponding to the current position of the user in the book
-* Crypt the file to apply our custom DRM
-
-These jobs take between a few minutes to almost an hour for the larger books (some of the files we receive are over 100 Mo)
-
-Over the time we discovered the challenges of processing long and complex background jobs on Heroku, we'll see how we solved them by moving our book pour processing infrastructure to EC2.
-
+[Youboox](http://www.youboox.fr) is a young startup offering a subscription to ebooks. Over the time we discovered the challenges of processing long and complex background jobs on Heroku, we'll see how we solved them by moving our book pour processing infrastructure to EC2.
 
 
 ### Why we started with Heroku :
@@ -33,8 +23,18 @@ Late 2011 when we started to write the first lines of code for Youboox, we had v
 
 At that time we had 2 priorities : signing deal with publishers and growing our user base.
 
-Our technical choices aimed at delivering value as fast as possible to users and publishers. We were focused on development rather than managing infrastructure, so Heroku was a perfect fit in this situation, it was great to get up and running fast without ever having to ssh to a server.
-If i had to do it again i would definitely go for Heroku.
+Our technical choices aimed at delivering value as fast as possible to users and publishers. We were focused on development rather than managing infrastructure, so Heroku was a perfect fit in this situation, it was great to get up and running fast without ever having to ssh to a server. If i had to do it again i would definitely go for Heroku.
+
+
+###Our context
+
+When we receive a new book we start a backround job that will :
+
+* Compress the book (ex : extracting image, compressing them, etc)
+* Slice the book into several smaller files, so we can send only pages corresponding to the current position of the user in the book
+* Crypt the file to apply our custom DRM
+
+These jobs take between a few minutes to almost an hour for the larger books (some of the files we receive are over 100 Mo)
 
 
 ### Our book processing infrastructure :

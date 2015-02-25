@@ -45,7 +45,7 @@ end.to_xml
 {% endhighlight %}
 
 
-If your sitemap is more complex (thousands of pages for example) you can use the [sitemap_generator](https://github.com/kjvarga/sitemap_generator) gem. You'll get some nice features out of the box : slice your sitemap by 50.000 links, and gzip them. You can also upload it to S3
+If your sitemap is more complex (thousands of pages for example) you can use the [sitemap_generator](https://github.com/kjvarga/sitemap_generator) gem. You'll get some nice features out of the box : slice your sitemap by 50.000 links, gzip them, and create the [sitemap index](https://support.google.com/webmasters/answer/75712?hl=en). You can also upload it to S3
 
 Follow the readme, but here is a sample so you can compare :
 
@@ -84,7 +84,34 @@ Some discussion on Moz.com even suggest that this could hurt your ranking : "we'
 So in this case i decided not to include user search from the sitemap. I ended up with a 2 relevant page sitemap instead of a 10+ Millions irrelevant pages.
 
 
-#### Step 3 : add meta tags
+#### Step 3 : submit your sitemap
+
+Now that your sitemap is generated, go to Google webmaster tools. In the site dashboard wheck that your sitemap was found by google crawler. If not, submit it.
+
+Tips : If your have a very large sitemap, you should split it into several files, with a maximum of 50k urls each. Create a sitemap index describing all the sitemap files, this is an xml file looking like this :
+
+{% highlight xml %}
+
+<?xml version="1.0" encoding="UTF-8"?>
+   <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <sitemap>
+      <loc>http://www.example.com/sitemap1.xml.gz</loc>
+      <lastmod>2004-10-01T18:23:17+00:00</lastmod>
+   </sitemap>
+   <sitemap>
+      <loc>http://www.example.com/sitemap2.xml.gz</loc>
+      <lastmod>2005-01-01</lastmod>
+   </sitemap>
+   </sitemapindex>
+  
+{% endhighlight %}
+
+
+You can learn more about sitemap index [here](https://support.google.com/webmasters/answer/75712?hl=en) 
+
+
+
+#### Step 4 : add meta tags
 
 * __[Title](http://moz.com/learn/seo/title-tag)__ : Displayed in search engine results, important for SEO. Recommended format is : 'Primary Keyword - Secondary Keyword - Brand Name'
 
@@ -122,3 +149,6 @@ In your view :
 <% end %>
 
 {% endhighlight %}
+
+
+That's it ! Any more ideas on how to improve a Ruby On Rails ranking on search engines ? If so Post a comment.

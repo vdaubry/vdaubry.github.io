@@ -10,7 +10,7 @@ header-img: "img/post-bg-02.jpg"
 
 ### SEO for Rails
 
-My latest project is a web app to allow developpers to find what is their ranking on github : [Gitub awards](http://github-awards.com/). I looked for advices on how to improve SEO, one again, so I decided to gather a little check list here, to save some time next time. 
+My latest project is a web app that give developers their ranking on github : [Gitub awards](http://github-awards.com/). I looked for advices on how to improve SEO, once again, so I decided to gather a little check list here, to save me some time next time.<br>
 These search engine optimization advices won't be specific for a Rails app but i'll focus on the tools in ruby that are available to help.  
 
 #### Step 1 : setup Google webmaster tools
@@ -24,7 +24,7 @@ And follow the instructions.
 
 #### Step 2 : generate a sitemap
 
-Generating a sitemap is as easy as generating a XML file, if you have a fairly simple sitemap you can do it just with [Nokogiri](http://www.nokogiri.org/). It would look like this :
+Generating a sitemap is as easy as generating a XML file, if you have only a few pages to index, just use [Nokogiri](http://www.nokogiri.org/). It would look like this :
 
 {% highlight ruby %}
 
@@ -44,10 +44,11 @@ end.to_xml
 
 {% endhighlight %}
 
+Once the sitemap is generated, just put it either in your public folder.
 
-If your sitemap is more complex (thousands of pages for example) you can use the [sitemap_generator](https://github.com/kjvarga/sitemap_generator) gem. You'll get some nice features out of the box : slice your sitemap by 50.000 links, gzip them, and create the [sitemap index](https://support.google.com/webmasters/answer/75712?hl=en). You can also upload it to S3
+If your sitemap is more complex (thousands of pages for example) you can use the [sitemap_generator](https://github.com/kjvarga/sitemap_generator) gem. You'll get some nice features out of the box : slice your sitemap by 50.000 links, gzip them, and create the [sitemap index](https://support.google.com/webmasters/answer/75712?hl=en). It can also upload it to S3
 
-Follow the readme, but here is a sample so you can compare :
+Follow the [gem readme](https://github.com/kjvarga/sitemap_generator), but here is a sample code :
 
 
 {% highlight ruby %}
@@ -63,25 +64,21 @@ SitemapGenerator::Sitemap.ping_search_engines # Not needed if you use the rake t
 
 {% endhighlight %}
 
-When you have a small number of pages (few hundreds or less), just add all your pages to the sitemap, specifying refresh frequency and priority.
-Once the sitemap is generated, just put it either in your public folder.
-
-
 
 What if you have millions of pages to index ?
 
-That's exactly the situation i faced with Github awards : i have a page each Github user, so potentially that's more than 10 Millions pages to include in the sitemap.
+That's exactly the situation i faced with Github awards : i have a page for each Github user, so potentially that's more than 10 Millions pages to include in the sitemap.
 So should i generate a huge sitemap with all these pages ?
 
-You should add to the sitemap pages that are not easily reachable trhough link walking. That's exactly the situation for Github awards : the vast majority of user pages are only accessible through the search, there no way for a search engine crawler to find them on its own.
+You should add to the sitemap pages that are not easily reachable by the crawler through link walking. That's exactly the situation for Github awards : the vast majority of user pages are only accessible through the search, there is no way for a search engine crawler to find them on its own.
 
-Another thing to consider is the relevancy of this pages for a search engine, i.e: what is the amount of unique content on these pages ?
-For example on a e-commerce website each product has a unique description (if the same description is not on 10 different sites...), user comments, so potentially  it's valuable to index all these pages.
-For github awards i'm only generating stats for each user, there is basically no unique content to index for google.
+Another thing to consider is the relevancy of these pages for a search engine, i.e: what is the amount of unique content on these pages ?
+For example on a e-commerce website each product may have a lot of unique content : user comments, even product description might be unique, so potentially it's valuable to index all these pages.
+For github awards i'm only generating stats for each user, there is basically nothing to index for google.
 
 Some discussion on Moz.com even suggest that this could hurt your ranking : "we've found it detrimental to give Google hundreds of pages to crawl on a sitemap that we don't feel are important" ([source](http://moz.com/community/q/should-xml-sitemaps-include-all-pages-or-just-the-deeper-ones))
 
-So in this case i decided not to include user search from the sitemap. I ended up with a 2 relevant page sitemap instead of a 10+ Millions irrelevant pages.
+So in this case i decided not to include user pages to the sitemap.
 
 
 #### Step 3 : submit your sitemap
